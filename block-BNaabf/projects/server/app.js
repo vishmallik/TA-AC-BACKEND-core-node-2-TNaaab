@@ -21,7 +21,5 @@
 
 const path = require("path");
 const relativePath = "../client/index.js";
-const absolutePath = path.join(
-  __dirname.split("/").slice(0, -1).join("/") + "/client/index.js"
-);
+const absolutePath = path.join(__dirname, "..", "client/index.js");
 console.log(relativePath, absolutePath);
