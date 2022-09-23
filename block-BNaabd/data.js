@@ -11,6 +11,7 @@ function handleRequest(req, res) {
   });
   req.on("end", () => {
     if (dataType === "application/json" && req.url === "/json") {
+      res.setHeader("Content-Type", "application/json");
       res.write(store);
       res.end();
     }
@@ -19,6 +20,7 @@ function handleRequest(req, res) {
       req.url === "/form"
     ) {
       let parsedData = qs.parse(store);
+      res.setHeader("Content-Type", "application/json");
       res.write(JSON.stringify(parsedData));
       res.end();
     }
