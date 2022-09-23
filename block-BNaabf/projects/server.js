@@ -54,7 +54,10 @@ function handleRequest(req, res) {
     if (req.method === "POST" && req.url === "/form") {
       res.setHeader("Content-Type", "text/html");
       let parsedData = qs.parse(store);
-      res.end(JSON.stringify(parsedData));
+      res.write(`<h2>${parsedData.name}</h2>`);
+      res.write(`<h3>${parsedData.email}</h3>`);
+      res.write(`<p>${parsedData.age}</p>`);
+      res.end();
     }
   });
 }
